@@ -14,6 +14,14 @@ describe 'my_uniq' do
         expect(my_uniq(array)).to eq([1,2,3])
     end
 
+    it "should return the unique elements in the order in which they first appeared" do
+        array1 = %w(Y 3 Y Y E T E)
+        array2 = [false, true, true, false]
+
+        expect(my_uniq(array1)).to eq(%w(Y 3 E T))
+        expect(my_uniq(array2)).to eq([false, true])
+    end
+
     it "should raise an error if argument given is not an array" do
         error_message = "my_uniq must be given an array"
         
