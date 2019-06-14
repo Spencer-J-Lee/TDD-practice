@@ -22,4 +22,12 @@ describe 'two_sum' do
         result = two_sum(nums_array)
         expect(two_sum(nums_array)).to eq(result.sort)
     end
+
+    it "should raise an error if argument given is not an array" do
+        error_message = "two_sum must be given an array"
+        
+        expect { two_sum( "string" ) }.to raise_error(error_message)
+        expect { two_sum( 42 ) }.to raise_error(error_message)
+        expect { two_sum( { A:0 } ) }.to raise_error(error_message)
+    end
 end

@@ -1,4 +1,6 @@
 def two_sum(array)
+    raise ArgumentError.new "two_sum must be given an array" unless array.is_a?(Array)
+
     zero_pairs = []
 
     array.each_with_index do |num1, idx1|
