@@ -13,4 +13,12 @@ describe 'my_uniq' do
     it "should remove duplicate elements from an array" do
         expect(my_uniq(array)).to eq([1,2,3])
     end
+
+    it "should raise an error if argument given is not an array" do
+        error_message = "my_uniq must be given an array"
+        
+        expect { my_uniq( "string" ) }.to raise_error(error_message)
+        expect { my_uniq( 42 ) }.to raise_error(error_message)
+        expect { my_uniq( { A:0 } ) }.to raise_error(error_message)
+    end
 end
