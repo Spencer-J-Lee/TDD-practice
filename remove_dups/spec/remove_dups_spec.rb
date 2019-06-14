@@ -22,6 +22,11 @@ describe 'my_uniq' do
         expect(my_uniq(array2)).to eq([false, true])
     end
 
+    it "should return a new array" do
+        old_array = [1,2,3]
+        expect(my_uniq(old_array)).to_not be(old_array)
+    end
+
     it "should raise an error if argument given is not an array" do
         error_message = "my_uniq must be given an array"
         
