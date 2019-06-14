@@ -7,19 +7,17 @@ require 'stock_picker'
 # Remember, you can't sell stock before you buy it!
 
 describe 'stock_picker' do
-    subject(:stock_prices) {
+    subject(:prices) {
         [
             ['Day 1', 4],
             ['Day 2', 3],
             ['Day 3', 10],
             ['Day 4', 7],
-            ['Day 5', 6],
+            ['Day 5', 6]
         ]
     }
 
-    describe 'stock_picker' do
-        it "takes in an array as an argument" do
-            expect(stock_picker(stock_prices)).to receive(stock_prices)
-        end
+    it "takes in an array as an argument" do
+        expect { stock_picker(prices) }.to_not raise_error
     end
 end
