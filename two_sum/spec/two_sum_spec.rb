@@ -12,6 +12,9 @@ require 'rspec'
 # [0, 1] before [0, 2] (then smaller second elements come first)
 
 describe 'two_sum' do
-    it "pending test"
+    subject(:nums_array) { [-2, -1, 0, 1, 2]}
 
+    it "should find all pairs of indices where the elements at those indices sum to zero" do
+        expect(two_sum(nums_array)).to eq([[0,4], [1,3]])
+    end
 end
