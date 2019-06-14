@@ -10,7 +10,8 @@ Write a new Array#two_sum method that finds all pairs of positions where the ele
 NB: ordering matters. We want each of the pairs to be sorted smaller index before bigger index. We want the array of pairs to be sorted "dictionary-wise":
 
 [-1, 0, 2, -2, 1].two_sum # => [[0, 4], [2, 3]]
-[0, 2] before [2, 1] (smaller first elements come first)
+[0, 2] before [2, 1] (smaller first ele
+ments come first)
 [0, 1] before [0, 2] (then smaller second elements come first)
 My Transpose
 To represent a matrix, or two-dimensional grid of numbers, we can write an array containing arrays which represent rows:
