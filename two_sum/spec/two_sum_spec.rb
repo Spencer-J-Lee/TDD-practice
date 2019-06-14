@@ -17,4 +17,9 @@ describe 'two_sum' do
     it "should find all pairs of indices where the elements at those indices sum to zero" do
         expect(two_sum(nums_array)).to eq([[0,4], [1,3]])
     end
+
+    it "pairs should be order from smallest index to largest index" do
+        result = two_sum(nums_array)
+        expect(two_sum(nums_array)).to eq(result.sort)
+    end
 end
