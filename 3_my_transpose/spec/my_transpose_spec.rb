@@ -42,7 +42,7 @@ describe 'my_transpose' do
         ]
     }
 
-    it "should return a 2D-array in which rows and columns are swapped" do
+    it "should return a 2D-array in which rows and columns are" do
         transposed_array = [
             [0, 3, 6],
             [1, 4, 7],
