@@ -42,7 +42,7 @@ describe 'my_transpose' do
         ]
     }
 
-    it "should return a 2D-array in which rows and columns are" do
+    it "returns a 2D-array in which rows and columns are swapped" do
         transposed_array = [
             [0, 3, 6],
             [1, 4, 7],
@@ -50,5 +50,13 @@ describe 'my_transpose' do
         ]
 
         expect(my_transpose(array)).to eq(transposed_array)
+    end
+
+    it "raises an error if argument given is not a 2D-array" do
+        error_message = "my_transpose must be given a 2D-array"
+        
+        expect { my_transpose( "string" ) }.to raise_error(error_message)
+        expect { my_transpose( 42 ) }.to raise_error(error_message)
+        expect { my_transpose( { A:0 } ) }.to raise_error(error_message)
     end
 end
