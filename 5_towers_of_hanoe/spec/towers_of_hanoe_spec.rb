@@ -17,4 +17,16 @@ require 'towers_of_hanoe'
 describe TowersHanoe do
     subject(:game) { TowersHanoe.new }
 
+    describe "#initialize" do
+        it "creates an instance variable @towers that contains a 2D-array of three arrays" do
+            expect(game.towers.count).to eq(3)
+            expect(game.towers.all? { |tower| tower.is_a?(Array) }).to eq(true)
+        end
+
+        it "@towers holds three elements in the first array and none in the others" do
+            expect(game.towers[0].count).to eq(3)
+            expect(game.towers[1]).to be_empty
+            expect(game.towers[2]).to be_empty
+        end     
+    end
 end
