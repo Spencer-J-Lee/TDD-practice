@@ -58,5 +58,6 @@ describe 'my_transpose' do
         expect { my_transpose( "string" ) }.to raise_error(error_message)
         expect { my_transpose( 42 ) }.to raise_error(error_message)
         expect { my_transpose( { A:0 } ) }.to raise_error(error_message)
+        expect { my_transpose( [1,[2],3] ) }.to raise_error(error_message)
     end
 end
