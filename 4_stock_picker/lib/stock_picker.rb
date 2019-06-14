@@ -1,2 +1,3 @@
-def stock_picker(array)
+def stock_picker(prices)
+
 end
