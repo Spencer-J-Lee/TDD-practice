@@ -42,4 +42,13 @@ describe 'my_transpose' do
         ]
     }
 
+    it "should return a 2D-array in which rows and columns are swapped" do
+        transposed_array = [
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8]
+        ]
+
+        expect(my_transpose(array)).to eq(transposed_array)
+    end
 end
