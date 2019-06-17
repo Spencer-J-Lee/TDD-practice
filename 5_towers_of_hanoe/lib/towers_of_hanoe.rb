@@ -14,7 +14,7 @@ class TowersHanoe
     end
 
     def over?
-        
+        [1,2].any? { |n| towers[n] == [3,2,1] }
     end
 
     def move(start_tower, end_tower)
