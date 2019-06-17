@@ -59,4 +59,16 @@ describe TowersHanoe do
         end
     end
 
+    describe "#over?" do
+        it "is over if towers 1 or 2 are fully stacked" do
+            game.move(0,2)
+            game.move(0,1)
+            game.move(2,1)
+            game.move(0,2)
+            game.move(1,0)
+            game.move(1,2)
+            game.move(0,2)
+            expect(game.over?).to be(true)
+        end
+    end
 end
