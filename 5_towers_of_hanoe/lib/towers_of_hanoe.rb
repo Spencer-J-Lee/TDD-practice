@@ -30,7 +30,11 @@ class TowersHanoe
     end
 
     def valid_move?(start_tower, end_tower)
+        return false unless start_tower.between?(0,2) && end_tower.between?(0,2)
+        return false if towers[start_tower].empty?
+        return false if towers[start_tower].last > towers[end_tower].last
 
+        true
     end
 
     def display
