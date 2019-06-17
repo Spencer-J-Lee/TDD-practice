@@ -29,4 +29,25 @@ describe TowersHanoe do
             expect(game.towers[2]).to be_empty
         end     
     end
+
+    describe "#move" do
+    end
+
+    describe "#valid_move?" do 
+        it "returns false if either argument is not a number from 0 to 2" do
+            expect(game.valid_move?(0,3)).to be(false)
+            expect(game.valid_move?(3,0)).to be(false)
+            expect(game.valid_move?(3,3)).to be(false)
+        end
+
+        it "returns false if pulling from an empty tower" do
+            expect(game.valid_move?(1,0)).to be(false)
+            expect(game.valid_move?(2,0)).to be(false)
+        end
+
+        it "returns false if starting disc is larger than the ending disc" do
+            game.towers = [[3,2],[1],[]]
+            expect(game.valid_move?(0,1)).to be(false)
+        end
+    end
 end
