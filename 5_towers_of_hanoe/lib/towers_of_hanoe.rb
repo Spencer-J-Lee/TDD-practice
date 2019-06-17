@@ -16,7 +16,7 @@ class TowersHanoe
     def over?
 
     end
-
+    
     def move(start_tower, end_tower)
         # 1. prompts for input to select the tower to move from (integer)
         # 2. prompts for input to select the tower to move to (integer)
@@ -25,13 +25,18 @@ class TowersHanoe
         #   - invalid : pull from an empty position
         #   - invalid : from is larger than to
         # 4. moves the elements from tower to tower if valid
+        raise "Invalid move" unless valid_move?(start_tower, end_tower)
 
+        towers[end_tower] << towers[start_tower].pop
     end
 
     def valid_move?(start_tower, end_tower)
-        return false unless start_tower.between?(0,2) && end_tower.between?(0,2)
+        return false unless [start_tower, end_tower].all? { |n| n.between?(0,2) }
         return false if towers[start_tower].empty?
-        return false if towers[start_tower].last > towers[end_tower].last
+
+        unless towers[end_tower].last.nil?
+            return false if towers[start_tower].last > towers[end_tower].last
+        end
 
         true
     end

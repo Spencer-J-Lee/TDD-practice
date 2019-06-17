@@ -58,4 +58,5 @@ describe TowersHanoe do
             expect(game.towers).to eq([[3,2],[],[1]])
         end
     end
+
 end
