@@ -30,24 +30,32 @@ describe TowersHanoe do
         end     
     end
 
-    describe "#move" do
-    end
-
     describe "#valid_move?" do 
         it "returns false if either argument is not a number from 0 to 2" do
             expect(game.valid_move?(0,3)).to be(false)
             expect(game.valid_move?(3,0)).to be(false)
             expect(game.valid_move?(3,3)).to be(false)
         end
-
+        
         it "returns false if pulling from an empty tower" do
             expect(game.valid_move?(1,0)).to be(false)
             expect(game.valid_move?(2,0)).to be(false)
         end
-
+        
         it "returns false if starting disc is larger than the ending disc" do
             game.towers = [[3,2],[1],[]]
             expect(game.valid_move?(0,1)).to be(false)
+        end
+    end
+
+    describe "#move" do
+        it "raises an error if valid_move? returns false" do
+            expect {game.move(0,3)}.to raise_error("Invalid move")
+        end
+
+        it "moves the last element of the start tower to the last element of the end tower" do
+            game.move(0,2)
+            expect(game.towers).to eq([[3,2],[],[1]])
         end
     end
 end
