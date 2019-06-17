@@ -10,7 +10,19 @@ class TowersHanoe
     end
 
     def play
+        until over?
+            display
+
+            puts "Choose which tower to pull from: "
+            start_tower = gets.to_i
+
+            puts "Choose which tower to add to: "
+            end_tower = gets.to_i
+
+            move(start_tower, end_tower)
+        end
         
+        puts "You win"
     end
 
     def over?
@@ -18,14 +30,10 @@ class TowersHanoe
     end
 
     def move(start_tower, end_tower)
-        # 1. prompts for input to select the tower to move from (integer)
-        # 2. prompts for input to select the tower to move to (integer)
-        # 3. checks if the move from tower to tower is valid
-        #   - invalid : not a number from 0 2
-        #   - invalid : pull from an empty position
-        #   - invalid : from is larger than to
-        # 4. moves the elements from tower to tower if valid
-        raise "Invalid move" unless valid_move?(start_tower, end_tower)
+        unless valid_move?(start_tower, end_tower)
+            puts "Invalid move"
+            return sleep 1
+        end
 
         towers[end_tower] << towers[start_tower].pop
     end
@@ -42,11 +50,17 @@ class TowersHanoe
     end
 
     def display
+        system 'clear'
 
+        towers.each_with_index do |tower, tower_num|
+            print "Tower #{tower_num}: "
+            tower.each { |n| print n.to_s + " " }
+            puts
+        end
     end
 end
 
-# if __FILE__ == $0
-#     game = TowersHanoe.new
-#     game.play
-# end
+if __FILE__ == $0
+    game = TowersHanoe.new
+    game.play
+end
